@@ -1,4 +1,5 @@
 const express = require("express")
+const Cors = require("cors")
 const dotenv = require("dotenv").config()
 
 const connection = require("./connect/database")
@@ -13,6 +14,7 @@ const app = express()
 // Middlewares
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
+app.use(Cors())
 
 // Creating Routes
 app.use("/api/tasks", require("./routes/taskRoutes"));
